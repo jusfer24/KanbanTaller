@@ -1,5 +1,7 @@
 # KanbanTaller
 
+[![CI](https://github.com/jusfer24/KanbanTaller/actions/workflows/ci.yml/badge.svg)](https://github.com/jusfer24/KanbanTaller/actions/workflows/ci.yml)
+
 Aplicación Kanban (estilo Jira) hecha con React + Vite.
 
 **Demo:** https://kanban-taller.vercel.app
@@ -38,6 +40,15 @@ Abre la URL que muestra la terminal (por defecto http://localhost:5173).
 | `npm run lint`    | Revisa el código con oxlint         |
 | `npm test`        | Ejecuta las pruebas con Vitest      |
 | `npm run test:watch` | Pruebas en modo observación      |
+
+## Integración continua (GitHub Actions)
+
+El pipeline [`.github/workflows/ci.yml`](.github/workflows/ci.yml) se ejecuta en cada
+**push** y **pull request** hacia `main`, en un runner *self-hosted* del grupo con Node.js 20:
+
+1. Instala las dependencias (`npm ci`).
+2. Ejecuta las pruebas automatizadas con Vitest (`npm test`).
+3. Genera el build de producción (`npm run build`).
 
 ## Estructura
 
