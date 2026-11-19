@@ -56,6 +56,38 @@
   color: var(--color-text);
 }
 
+/* Botón con icono de papelera para eliminar el proyecto actual */
+.deleteProjectButton {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1px solid var(--blue-400);
+  border-radius: var(--radius-sm);
+  background: var(--blue-700);
+  color: var(--blue-100);
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+.deleteProjectButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+.deleteProjectButton:hover:not(:disabled) {
+  background: var(--blue-900);
+  color: #fff;
+}
+
+.deleteProjectButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .newProjectButton {
   display: inline-flex;
   align-items: center;

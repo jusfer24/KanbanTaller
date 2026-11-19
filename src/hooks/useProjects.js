@@ -1,6 +1,7 @@
-// Hook con la lógica de proyectos: listar, crear y elegir el proyecto actual.
+// Hook con la lógica de proyectos: listar, crear, eliminar y elegir el proyecto actual.
 import { useEffect, useState } from 'react'
 import { DEFAULT_PROJECT } from '../constants/project.js'
+import { removeProject } from '../utils/projects.js'
 import {
   loadCurrentProjectId,
   loadProjects,
@@ -51,5 +52,18 @@ export function useProjects() {
     setCurrentProjectId(newProject.id)
   }
 
-  return { projects, currentProject, addProject, selectProject: setCurrentProjectId }
+  // Elimina un proyecto (nunca el último) y ajusta el proyecto seleccionado.
+  function deleteProject(id) {
+    const result = removeProject(projects, id, currentProject.id)
+    setProjects(result.projects)
+    setCurrentProjectId(result.currentProjectId)
+  }
+
+  return {
+    projects,
+    currentProject,
+    addProject,
+    deleteProject,
+    selectProject: setCurrentProjectId,
+  }
 }
