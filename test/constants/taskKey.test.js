@@ -1,0 +1,20 @@
+import { describe, expect, it } from 'vitest'
+import { buildTaskKey, parseTaskKeyNumber, TASK_KEY_PREFIX } from '../../src/constants/taskKey.js'
+
+describe('códigos de tarea', () => {
+  it('construye el código con el prefijo y el número', () => {
+    expect(TASK_KEY_PREFIX).toBe('KT')
+    expect(buildTaskKey(7)).toBe('KT-7')
+  })
+
+  it('extrae el número de un código válido', () => {
+    expect(parseTaskKeyNumber('KT-12')).toBe(12)
+    expect(parseTaskKeyNumber(buildTaskKey(3))).toBe(3)
+  })
+
+  it('devuelve 0 si el código no es válido', () => {
+    expect(parseTaskKeyNumber(undefined)).toBe(0)
+    expect(parseTaskKeyNumber('KT')).toBe(0)
+    expect(parseTaskKeyNumber('KT-abc')).toBe(0)
+  })
+})

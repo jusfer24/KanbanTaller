@@ -36,6 +36,8 @@ Abre la URL que muestra la terminal (por defecto http://localhost:5173).
 | `npm run build`   | Compila para producción en `dist/`  |
 | `npm run preview` | Sirve la compilación de producción  |
 | `npm run lint`    | Revisa el código con oxlint         |
+| `npm test`        | Ejecuta las pruebas con Vitest      |
+| `npm run test:watch` | Pruebas en modo observación      |
 
 ## Estructura
 
@@ -56,4 +58,8 @@ src/
 ├── styles/             Variables globales (paleta de azules) y estilos de formulario
 ├── App.jsx
 └── main.jsx
+
+test/                   Pruebas automatizadas (Vitest), con la misma estructura que src/
+├── constants/          Códigos de tarea y prioridades
+└── utils/              Búsqueda y localStorage
 ```
