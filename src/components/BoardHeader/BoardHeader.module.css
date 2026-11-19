@@ -1,0 +1,240 @@
+/* Barra superior azul sólida */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  height: 52px;
+  padding-right: var(--space-5);
+  background: var(--blue-600);
+  box-shadow: 0 2px 10px rgba(23, 44, 94, 0.25);
+  color: #fff;
+}
+
+/* Bloque de la marca, un tono más oscuro */
+.brand {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  padding: 0 var(--space-5);
+  background: var(--blue-800);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* Selector de proyecto + botón "Nuevo proyecto" */
+.projects {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.projectSelect {
+  max-width: 200px;
+  padding: 6px 28px 6px var(--space-3);
+  border: 1px solid var(--blue-400);
+  border-radius: var(--radius-sm);
+  background-color: var(--blue-700);
+  color: #fff;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: background-color var(--transition);
+}
+
+.projectSelect:hover {
+  background-color: var(--blue-800);
+}
+
+.projectSelect option {
+  background: #fff;
+  color: var(--color-text);
+}
+
+.newProjectButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 6px var(--space-3);
+  border: 1px solid #fff;
+  border-radius: var(--radius-pill);
+  background: #fff;
+  color: var(--blue-700);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+.newProjectButton:hover {
+  background: var(--blue-100);
+  color: var(--blue-800);
+}
+
+/* Buscador dentro de la barra, a la derecha */
+.search {
+  position: relative;
+  flex: 1;
+  max-width: 280px;
+  margin-left: auto;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: var(--space-3);
+  width: 16px;
+  height: 16px;
+  color: var(--blue-100);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 7px var(--space-3) 7px 36px;
+  border: 1px solid var(--blue-400);
+  border-radius: var(--radius-pill);
+  background: var(--blue-500);
+  color: #fff;
+  font-size: 0.85rem;
+  transition:
+    background var(--transition),
+    border-color var(--transition);
+}
+
+.searchInput::placeholder {
+  color: var(--blue-100);
+}
+
+.searchInput:hover {
+  background: var(--blue-400);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #fff;
+  background: var(--blue-700);
+}
+
+.searchInput::-webkit-search-cancel-button {
+  cursor: pointer;
+}
+
+.results {
+  font-size: 0.85rem;
+  color: var(--blue-100);
+  white-space: nowrap;
+}
+
+/* Cabecera del tablero: título a la izquierda, botón a la derecha */
+.boardHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-6);
+}
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-1);
+  font-size: 0.8rem;
+  color: var(--color-text-subtle);
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--color-text);
+}
+
+/* Botón principal en forma de píldora */
+.createButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 10px var(--space-5);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  box-shadow: var(--shadow-button);
+  color: #fff;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    transform var(--transition);
+}
+
+.createButton:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.createButton:active {
+  transform: translateY(0);
+}
+
+.plus {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    gap: var(--space-3);
+    padding-right: var(--space-3);
+  }
+
+  .brand {
+    padding: 0 var(--space-3);
+    font-size: 0.95rem;
+  }
+
+  .search {
+    max-width: none;
+  }
+
+  .results {
+    display: none;
+  }
+
+  /* En móvil: botón "Nuevo proyecto" solo con "+" */
+  .projectSelect {
+    max-width: 110px;
+  }
+
+  .newProjectButton {
+    padding: 6px 10px;
+  }
+
+  .newProjectText {
+    display: none;
+  }
+
+  .boardHeader {
+    padding: var(--space-4);
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  /* En móvil se usa el botón flotante */
+  .createButton {
+    display: none;
+  }
+}

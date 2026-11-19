@@ -1,0 +1,109 @@
+/* Estilos compartidos por los formularios (tarea y proyecto). */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+/* Dos campos en la misma fila */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-subtle);
+}
+
+.required {
+  color: var(--blue-600);
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--blue-100);
+  border-radius: var(--radius-sm);
+  background: var(--color-input);
+  transition:
+    background var(--transition),
+    border-color var(--transition);
+}
+
+.input:hover {
+  border-color: var(--blue-200);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-focus);
+  background: var(--color-surface);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+/* Botones en forma de píldora */
+.primary,
+.secondary {
+  padding: 9px var(--space-5);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.primary {
+  background: var(--color-primary);
+  box-shadow: var(--shadow-button);
+  color: #fff;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.primary:disabled {
+  background: var(--blue-300);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.secondary {
+  background: var(--blue-50);
+  color: var(--blue-700);
+}
+
+.secondary:hover {
+  background: var(--blue-100);
+}
+
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

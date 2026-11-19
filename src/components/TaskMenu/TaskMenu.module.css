@@ -1,0 +1,103 @@
+.menu {
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Botón "⋮" */
+.trigger {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-subtle);
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+.trigger:hover {
+  background: var(--blue-100);
+  color: var(--blue-700);
+}
+
+.open .trigger {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+/* Lista desplegable bajo el botón, alineada a la derecha */
+.dropdown {
+  position: absolute;
+  top: calc(100% + var(--space-1));
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  min-width: 170px;
+  padding: var(--space-1) 0;
+  border: 1px solid var(--blue-100);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-overlay);
+  animation: dropIn 0.12s ease-out;
+}
+
+.groupLabel {
+  padding: var(--space-1) var(--space-3);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle);
+}
+
+.item {
+  padding: 7px var(--space-3);
+  border: none;
+  background: none;
+  color: var(--color-text);
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition);
+}
+
+.item:hover {
+  background: var(--blue-50);
+  color: var(--blue-700);
+}
+
+.divider {
+  width: 100%;
+  margin: var(--space-1) 0;
+  border: none;
+  border-top: 1px solid var(--blue-100);
+}
+
+/* "Eliminar": azul más oscuro y en negrita para destacarlo */
+.danger {
+  color: var(--color-danger);
+  font-weight: 600;
+}
+
+.danger:hover {
+  background: var(--blue-800);
+  color: #fff;
+}
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}

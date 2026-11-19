@@ -1,0 +1,24 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+  align-items: start;
+}
+
+/* Tablet: columnas más estrechas con scroll horizontal */
+@media (max-width: 900px) {
+  .board {
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    gap: var(--space-4);
+    overflow-x: auto;
+    padding-bottom: var(--space-3);
+  }
+}
+
+/* Móvil: columnas apiladas */
+@media (max-width: 640px) {
+  .board {
+    grid-template-columns: 1fr;
+    overflow-x: visible;
+  }
+}
