@@ -75,5 +75,10 @@ export function useTasks() {
     updateTask(id, { status })
   }
 
-  return { tasks, addTask, updateTask, deleteTask, moveTask }
+  // Elimina todas las tareas de un proyecto (al eliminar el proyecto).
+  function deleteTasksByProject(projectId) {
+    setTasks((prev) => prev.filter((task) => task.projectId !== projectId))
+  }
+
+  return { tasks, addTask, updateTask, deleteTask, moveTask, deleteTasksByProject }
 }

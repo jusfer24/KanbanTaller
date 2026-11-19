@@ -10,8 +10,9 @@ import { useTasks } from './hooks/useTasks.js'
 import { filterTasks } from './utils/search.js'
 
 function App() {
-  const { projects, currentProject, addProject, selectProject } = useProjects()
-  const { tasks, addTask, updateTask, deleteTask, moveTask } = useTasks()
+  const { projects, currentProject, addProject, deleteProject, selectProject } = useProjects()
+  const { tasks, addTask, updateTask, deleteTask, moveTask, deleteTasksByProject } =
+    useTasks()
 
   const [isTaskFormOpen, setIsTaskFormOpen] = useState(false)
   const [isProjectFormOpen, setIsProjectFormOpen] = useState(false)
@@ -55,6 +56,22 @@ function App() {
     setIsProjectFormOpen(false)
   }
 
+  // Elimina el proyecto actual y todas sus tareas, previa confirmación.
+  function handleDeleteProject() {
+    if (projects.length <= 1) return
+    const count = projectTasks.length
+    const tasksText = count === 1 ? '1 tarea' : `${count} tareas`
+    const confirmed = window.confirm(
+      `¿Eliminar el proyecto "${currentProject.name}" y sus ${tasksText}?\n` +
+        'Esta acción no se puede deshacer.',
+    )
+    if (!confirmed) return
+
+    deleteTasksByProject(currentProject.id)
+    deleteProject(currentProject.id)
+    setQuery('')
+  }
+
   function handleSelectProject(id) {
     selectProject(id)
     setQuery('')
@@ -67,6 +84,7 @@ function App() {
         currentProject={currentProject}
         onSelectProject={handleSelectProject}
         onCreateProject={() => setIsProjectFormOpen(true)}
+        onDeleteProject={handleDeleteProject}
         query={query}
         onQueryChange={setQuery}
         resultCount={visibleTasks.length}

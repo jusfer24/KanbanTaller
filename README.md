@@ -11,7 +11,7 @@ Aplicación Kanban (estilo Jira) hecha con React + Vite.
 - Crear, editar y eliminar tareas.
 - Organizar tareas en tres estados: **Pendiente**, **En progreso** y **Completado**.
 - Cambiar el estado de las tareas arrastrándolas entre columnas o desde el menú "⋮" de cada tarjeta.
-- Crear varios proyectos, cada uno con su propio tablero.
+- Crear y eliminar proyectos, cada uno con su propio tablero.
 - Asignar prioridad (Alta / Media / Baja) y una etiqueta a cada tarea.
 - Identificar cada tarea con un código automático (KT-1, KT-2, …).
 - Buscar tareas por título, descripción, etiqueta o código.
@@ -72,12 +72,12 @@ src/
 │   └── ProjectForm/    Formulario para crear proyectos
 ├── hooks/              useTasks y useProjects: lógica de la app
 ├── constants/          Estados, prioridades, códigos de tarea y proyecto inicial
-├── utils/              localStorage y búsqueda
+├── utils/              localStorage, búsqueda y eliminación de proyectos
 ├── styles/             Variables globales (paleta de azules) y estilos de formulario
 ├── App.jsx
 └── main.jsx
 
 test/                   Pruebas automatizadas (Vitest), con la misma estructura que src/
 ├── constants/          Códigos de tarea y prioridades
-└── utils/              Búsqueda y localStorage
+└── utils/              Búsqueda, localStorage y proyectos
 ```
