@@ -4,7 +4,7 @@
 
 Aplicación Kanban (estilo Jira) hecha con React + Vite.
 
-**Demo:** https://kanban-taller.vercel.app
+**Demo:** https://kanban-taller-nine.vercel.app
 
 ## Funcionalidades
 
@@ -49,6 +49,13 @@ El pipeline [`.github/workflows/ci.yml`](.github/workflows/ci.yml) se ejecuta en
 1. Instala las dependencias (`npm ci`).
 2. Ejecuta las pruebas automatizadas con Vitest (`npm test`).
 3. Genera el build de producción (`npm run build`).
+
+## Despliegue (Vercel)
+
+La app está publicada en Vercel, vinculada a este repositorio de GitHub:
+
+- Cada push a `main` se publica automáticamente en producción.
+- Cada Pull Request genera una URL de vista previa.
 
 ## Estructura
 
